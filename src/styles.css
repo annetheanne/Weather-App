@@ -1,10 +1,5 @@
 body {
   font-family: "Montserrat", sans-serif;
-  border: 2px solid #eeeeee;
-  padding: 15px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 1000px;
 }
 
 form {
@@ -16,6 +11,14 @@ li {
   font-size: 20px;
   list-style: none;
   text-align: center;
+}
+
+.weather-app {
+  border: 2px solid #eeeeee;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 1000px;
 }
 
 .city {
@@ -65,4 +68,5 @@ li {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   color: #77628c;
+  text-align: center;
 }
