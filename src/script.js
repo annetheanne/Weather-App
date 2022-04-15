@@ -18,9 +18,6 @@ function displayDate(date) {
 }
 
 function displayWeatherCondition(response) {
-  document.querySelector("current-date-time").innerHTML = displayDate(
-    response.data.dt * 1000
-  );
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
