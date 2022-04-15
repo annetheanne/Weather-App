@@ -18,6 +18,8 @@ function displayDate(date) {
 }
 
 function displayWeatherCondition(response) {
+  let replaceIcon = document.querySelector(".current-icon");
+  let weatherIcon = "";
   weatherIcon = response.data.weather[0].icon;
   replaceIcon.innerHTML = chooseIcon(weatherIcon);
   document.querySelector("#city").innerHTML = response.data.name;
