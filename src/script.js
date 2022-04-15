@@ -18,6 +18,8 @@ function displayDate(date) {
 }
 
 function displayWeatherCondition(response) {
+  weatherIcon = response.data.weather[0].icon;
+  replaceIcon.innerHTML = chooseIcon(weatherIcon);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -31,6 +33,29 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+}
+
+function chooseIcon(icon) {
+  switch (icon.slice(0, 2)) {
+    case "01":
+      return "☀️";
+    case "02":
+      return "🌤";
+    case "03":
+      return "⛅️";
+    case "04":
+      return "☁️";
+    case "09":
+      return "🌧";
+    case "10":
+      return "🌦";
+    case "11":
+      return "🌩";
+    case "13":
+      return "❄️";
+    case "50":
+      return "🌫";
+  }
 }
 
 function searchCity(city) {
