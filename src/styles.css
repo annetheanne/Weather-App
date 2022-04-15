@@ -46,7 +46,7 @@ li {
   padding: 50px;
 }
 
-.current-emoji,
+.current-icon,
 .current-temp {
   color: #71a0a5;
   font-size: 60px;
@@ -59,7 +59,7 @@ li {
   padding-bottom: 20px;
 }
 
-.forecast-emoji {
+.forecast-icon {
   font-size: 40px;
   text-align: center;
 }
