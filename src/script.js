@@ -17,6 +17,20 @@ function displayDate(date) {
   return `${day} ${time}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = `
+          <div class="row forecast-temps" id="forecast">
+            <div class="col-2">
+              <div class="forecast-day">Sun</div>
+                <span class="forecast-icon">☁️</span><br />
+                <span class="forecast-temp-max">66°F</span>
+                <span class="forecast-temp-min"> 61°F</span>
+            </div>
+          </div>  
+        `;
+}
+
 function displayWeatherCondition(response) {
   let replaceIcon = document.querySelector(".current-icon");
   let weatherIcon = "";
@@ -110,6 +124,7 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Los Angeles");
+displayForecast();
 
 //let fahrenheitLink = document.querySelector("#fahrenheit-link");
 //fahrenheitLink.addEventListener("click", convertToFarhenheit);
