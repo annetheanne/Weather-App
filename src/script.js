@@ -19,16 +19,18 @@ function displayDate(date) {
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
   forecastElement.innerHTML = `
-          <div class="row forecast-temps" id="forecast">
-            <div class="col-2">
-              <div class="forecast-day">Sun</div>
-                <span class="forecast-icon">☁️</span><br />
-                <span class="forecast-temp-max">66°F</span>
-                <span class="forecast-temp-min"> 61°F</span>
-            </div>
-          </div>  
-        `;
+    <div class="row forecast-temps" id="forecast">
+      <div class="col-2">
+        <div class="forecast-day">Sun</div>
+          <span class="forecast-icon">☁️</span><br />
+           <span class="forecast-temp-max"><strong>66°F</strong></span>
+           <span class="forecast-temp-min"> 61°F</span>
+       </div>
+    </div>  
+  `;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function displayWeatherCondition(response) {
@@ -99,19 +101,6 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-/* function convertToFarhenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 61;
-} 
-
-function convertToCelsuis(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 16;
-} 
-*/
 
 let currentDate = document.querySelector(".current-date-time");
 let currentTime = new Date();
