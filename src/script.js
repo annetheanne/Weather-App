@@ -87,6 +87,8 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+
+  getForecast(response.data.coord);
 }
 
 function chooseIcon(icon) {
@@ -149,7 +151,6 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Los Angeles");
-displayForecast();
 
 //let fahrenheitLink = document.querySelector("#fahrenheit-link");
 //fahrenheitLink.addEventListener("click", convertToFarhenheit);
