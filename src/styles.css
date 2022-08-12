@@ -54,10 +54,21 @@ li {
 }
 
 .weather-forecast {
-  color: #77628c;
-  font-size: 20px;
   text-align: center;
   padding-bottom: 20px;
+}
+
+.weather-forecast-date {
+  color: #77628c;
+  font-size: 20px;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temp {
+  font-size: 20px;
 }
 
 .forecast-icon {
