@@ -26,7 +26,7 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  let forecast = response.list.main;
+  let forecast = response.data.list;
 
   let forecastElement = document.querySelector("#forecast");
 
