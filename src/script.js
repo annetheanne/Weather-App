@@ -32,7 +32,7 @@ function displayForecast(response) {
 
   let replaceIcon = document.querySelector(".forecast-icon");
   let weatherIcon = "";
-  weatherIcon = response.weather[0].icon;
+  weatherIcon = response.weather.icon;
   replaceIcon.innerHTML = chooseIcon(weatherIcon);
 
   let forecastHTML = `<div class="row">`;
