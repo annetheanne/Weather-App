@@ -30,10 +30,10 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
-  let replaceIcon = document.querySelector(".forecast-icon");
-  let weatherIcon = "";
-  weatherIcon = response.forecast.symbol.var;
-  replaceIcon.innerHTML = chooseIcon(weatherIcon);
+  let replaceForecastIcon = document.querySelector(".forecast-icon");
+  let forecastIcon = "";
+  forecastIcon = response.forecast.symbol.var;
+  replaceForecastIcon.innerHTML = chooseIcon(weatherIcon);
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
