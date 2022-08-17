@@ -30,6 +30,11 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
 
+  let replaceIcon = document.querySelector(".forecast-icon");
+  let weatherIcon = "";
+  weatherIcon = response.data.weather[0].icon;
+  replaceIcon.innerHTML = chooseIcon(weatherIcon);
+
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -38,13 +43,7 @@ function displayForecast(response) {
         `
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-        <img
-          src="http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png"
-          alt=""
-          width="42"
-        />
+        <div class="col forecast-icon" id="forecast-icon"></div>
         <div class="weather-forecast-temp">
           <span class="weather-forecast-temp-max"> ${Math.round(
             forecastDay.main.temp_max
