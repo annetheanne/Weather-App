@@ -43,7 +43,7 @@ function displayForecast(response) {
         `
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-        <div class="col forecast-icon" id="forecast-icon"></div>
+        <div class="forecast-icon" id="forecast-icon"></div>
         <div class="weather-forecast-temp">
           <span class="weather-forecast-temp-max"> ${Math.round(
             forecastDay.main.temp_max
