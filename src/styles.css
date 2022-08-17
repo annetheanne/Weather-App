@@ -64,6 +64,7 @@ li {
 }
 
 .weather-forecast-temp-min {
+  color: #77628c;
   opacity: 0.5;
 }
 
