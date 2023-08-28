@@ -139,7 +139,7 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let currentDate = document.querySelector(".current-date-time");
+let currentDate = document.querySelector("#current-date-time");
 let currentTime = new Date();
 currentDate.innerHTML = displayDate(currentTime);
 
