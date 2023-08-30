@@ -25,49 +25,6 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast(response) {
-  let forecast = response.data.list;
-
-  let forecastElement = document.querySelector("#forecast");
-
-  let replaceForecastIcon = document.querySelector(".forecast-icon");
-  let forecastIcon = "";
-  forecastIcon = response.weather[0].icon;
-  replaceForecastIcon.innerHTML = chooseIcon(forecastIcon);
-
-  let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      forecastHTML =
-        forecastHTML +
-        `
-      <div class="col-2">
-        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
-        <div class="forecast-icon" id="forecast-icon"></div>
-        <div class="weather-forecast-temp">
-          <span class="weather-forecast-temp-max"> ${Math.round(
-            forecastDay.main.temp_max
-          )}° </span>
-          <span class="weather-forecast-temp-min"> ${Math.round(
-            forecastDay.main.temp_min
-          )}° </span>
-        </div>
-      </div>
-  `;
-    }
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-function getForecast(coordinates) {
-  console.log(coordinates);
-  let apiKey = "125f64a9971676c48141e4f1453acef7";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayForecast);
-}
-
 function displayWeatherCondition(response) {
   let replaceIcon = document.querySelector(".current-icon");
   let weatherIcon = "";
@@ -88,6 +45,44 @@ function displayWeatherCondition(response) {
   );
 
   getForecast(response.data.coord);
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <div class="forecast-icon">${chooseIcon(
+          forecastDay.weather[0].icon
+        )}</div>
+        <div class="weather-forecast-temp">
+          <span class="weather-forecast-temp-max"> ${Math.round(
+            forecastDay.temp.max
+          )}°F | </span>
+          <span class="weather-forecast-temp-min"> ${Math.round(
+            forecastDay.temp.min
+          )}°F </span>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "125f64a9971676c48141e4f1453acef7";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function chooseIcon(icon) {
@@ -150,9 +145,3 @@ let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Los Angeles");
-
-//let fahrenheitLink = document.querySelector("#fahrenheit-link");
-//fahrenheitLink.addEventListener("click", convertToFarhenheit);
-
-//let celsiusLink = document.querySelector("#celsius-link");
-//celsiusLink.addEventListener("click", convertToCelsuis);

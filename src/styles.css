@@ -63,14 +63,17 @@ li {
   font-size: 20px;
 }
 
-.weather-forecast-temp-min {
-  color: #77628c;
-  opacity: 0.5;
-}
-
 .weather-forecast-temp {
   color: #77628c;
-  font-size: 20px;
+}
+
+.weather-forecast-temp-max {
+  font-size: 16px;
+}
+
+.weather-forecast-temp-min {
+  font-size: 16px;
+  font-weight: 200;
 }
 
 .forecast-icon {
